@@ -1,6 +1,6 @@
 import React, { useEffect , useState} from 'react'
 import { useParams } from 'react-router-dom'
-import {useHistory} from 'react-router'
+import {useNavigate} from 'react-router'
 
 
 
@@ -8,6 +8,8 @@ const Data = ({ match }) => {
 
     let {id}= useParams();
     let [data, setData] = useState(null);
+    const navigate =useNavigate();
+
 
     useEffect(()=>{
         getDataValue()
@@ -48,7 +50,7 @@ const Data = ({ match }) => {
           'Content-type' : 'application/json'
         },
       })
-      history.goBack();
+      navigate(-1);
     }
 
   return (
