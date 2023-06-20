@@ -11,5 +11,9 @@ class DataSerializer(ModelSerializer):
 class SingleDataSerializer(ModelSerializer):
     class Meta:
         model = Data
-        # fields = ['id','type','created_time']
         fields = '__all__'
+
+class UpdateDataSerializer(ModelSerializer):
+    class Meta:
+        model = Data
+        fields = ['value']

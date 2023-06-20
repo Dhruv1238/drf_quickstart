@@ -34,3 +34,21 @@ def getData(request, pk):
     data=Data.objects.get(id=pk)
     serializer=SingleDataSerializer(data, many=False)
     return Response(serializer.data)
+
+@api_view(['PUT'])
+def updateData(request, pk):
+    i=request.data
+    data=Data.objects.get(id=pk)
+    serializer=UpdateDataSerializer(instance=data, data=i, many=False)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteData(request, pk):
+    data=Data.objects.get(id=pk)
+    data.delete()
+    
+    return Response('data succsesfully delete!')
