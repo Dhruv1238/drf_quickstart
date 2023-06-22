@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <>
-    <div >
+    <div className='text-blue-500 text-center text-2xl font-bold p-5'>
         {data.map((item, index)=>(
             <Link to={`/data/${item.id}`}>
             <h2 key={index}>{item.type}</h2>
